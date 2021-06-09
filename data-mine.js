@@ -7,7 +7,6 @@ const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 const Car = require('./models/Car.js');
 const fs = require("fs");
-// const { generateKeyPair } = require("crypto");
 
 const prompt = require('prompt-sync')();
 
@@ -126,10 +125,8 @@ function generateURLs() {
 async function getData() {
     for (i = 0; i < generatedURLs.length; i++) {
         await wait(750); // Again, this number of ms was reached by trial and error
-
         https.get(generatedURLs[i], async (response) => {
             var body = '';
-
             response.on("data", async (data) => {
                 body += data;
             });
@@ -192,7 +189,7 @@ async function getYear() {
 
 async function go() {
     await getYear();
-    await generateURLs();
+    generateURLs();
     await dbConnection(true);
     await getData();
     await dbConnection(false);
