@@ -5,8 +5,8 @@ const express = require("express");
 const https = require("https");
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
-const Car = require('./models/Car.js');
 const fs = require("fs");
+const Car = require('./models/Car.js');
 
 const prompt = require('prompt-sync')();
 
